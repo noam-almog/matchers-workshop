@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wixpress.activity</groupId>
+    <artifactId>matchers-wprkshop</artifactId>
+    <name>matchers-wprkshop</name>
+    <description>matchers-wprkshop</description>
+    <version>1.1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <url>${project_url}/${project.artifactId}</url>
+
+    <parent>
+        <groupId>com.wixpress.common</groupId>
+        <artifactId>wix-scala-war-parent-ng</artifactId>
+        <version>100.0.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <distributionManagement>
+        <site>
+            <id>apidocs</id>
+            <url>${site_full_path}/${project.artifactId}</url>
+        </site>
+    </distributionManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.wixpress.common</groupId>
+            <artifactId>wix-framework-scala-dependencies</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wixpress.common</groupId>
+            <artifactId>wix-framework-war-dependencies</artifactId>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>com.wixpress.common</groupId>
+            <artifactId>wix-framework-scala-test-dependencies</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wixpress.hoopoe</groupId>
+            <artifactId>common-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>
