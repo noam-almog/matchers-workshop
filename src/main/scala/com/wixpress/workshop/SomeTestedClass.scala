@@ -1,7 +1,10 @@
 package com.wixpress.workshop
 
+import com.fasterxml.jackson.databind.JsonNode
 import com.wixpress.framework.time.SystemTimeSource
 import com.wixpress.hoopoe.ids._
+import com.wixpress.hoopoe.json._
+import com.wixpress.hoopoe.json.JsonMapper.Implicits.global
 import org.joda.time.DateTime
 
 /**
@@ -19,7 +22,13 @@ class SomeTestedClass(service: TestedInterface) {
   def wrapperOf(t: Result) = ResultWrapper(t)
 
   def modifiedWrapperOf(t: Result) = wrapperOf(modifiedClassFrom(t))
-  
+
+  // json matchers
+  def jsonOf(t: Result): JsonNode = t.asJson
+  def modifiedJsonOf(t: Result): JsonNode = modifiedClassFrom(t).asJson
+  def jsonStrOf(t: Result): String = t.asJsonStr
+  def modifiedJsonStrOf(t: Result): String = modifiedClassFrom(t).asJsonStr
+
 
   // option matchers
   def optionOf(s: String) = Option(s)

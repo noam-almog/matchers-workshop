@@ -31,27 +31,22 @@ class MatchersLesson3 extends SpecificationWithJUnit with ResultMatchers with Mo
   // 5. Never be on test scope, class context only
 
 
-  "Option" should {
+  "JsonMatchers" should {
 
-    "create a matcher for option" in new ctx {
-      testedUnit.optionOf(content)
+    "match object json representation" in new ctx {
+      testedUnit.jsonOf(result)
     }
 
-    "create a matcher for None" in new ctx {
-      testedUnit.optionOf(null)
+    "match object json representation" in new ctx {
+      testedUnit.modifiedJsonOf(result)
     }
 
-    "create a matcher for modified option" in new ctx {
-      testedUnit.modifiedOptionOf(result)
+    "match object json string representation" in new ctx {
+      testedUnit.jsonStrOf(result)
     }
 
-    "create a matcher for modified result" in new ctx {
-      testedUnit.wrapperOfOption(result)
+    "match object json string representation" in new ctx {
+      testedUnit.modifiedJsonStrOf(result)
     }
-
-    "create a matcher for wrapper of modified result" in new ctx {
-      testedUnit.wrapperOfOptionModifiedResult(result)
-    }
-
   }
 }

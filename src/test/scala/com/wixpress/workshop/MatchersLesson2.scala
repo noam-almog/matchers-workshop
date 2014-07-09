@@ -1,6 +1,8 @@
 package com.wixpress.workshop
 
+import com.wixpress.hoopoe.ids._
 import com.wixpress.hoopoe.test._
+import org.joda.time.DateTime
 import org.specs2.mock.Mockito
 import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.specification.Scope
@@ -17,7 +19,7 @@ class MatchersLesson2 extends SpecificationWithJUnit with ResultMatchers with Mo
 
     val testedUnit = new SomeTestedClass(service)
 
-
+    val result = new Result(id = randomGuid[Result], dateTime = new DateTime)
     val content = randomStr
   }
 
@@ -29,20 +31,42 @@ class MatchersLesson2 extends SpecificationWithJUnit with ResultMatchers with Mo
   // 5. Never be on test scope, class context only
 
 
-  "Equality" should {
 
+  "Exceptions" should {
 
-    "Exceptions" should {
-
-      "create a matcher for an exception" in new ctx {
-        testedUnit.throwExceptionWith(content)
-      }
-
-      "create a matcher for an exception with cause" in new ctx {
-        testedUnit.throwExceptionWith(content)
-      }
-
+    "create a matcher for an exception" in new ctx {
+      testedUnit.throwExceptionWith(content)
     }
+
+    "create a matcher for an exception with cause" in new ctx {
+      testedUnit.throwExceptionWith(content)
+    }
+
+  }
+
+
+  "Option" should {
+
+    "create a matcher for option" in new ctx {
+      testedUnit.optionOf(content)
+    }
+
+    "create a matcher for None" in new ctx {
+      testedUnit.optionOf(null)
+    }
+
+    "create a matcher for modified option" in new ctx {
+      testedUnit.modifiedOptionOf(result)
+    }
+
+    "create a matcher for modified result" in new ctx {
+      testedUnit.wrapperOfOption(result)
+    }
+
+    "create a matcher for wrapper of modified result" in new ctx {
+      testedUnit.wrapperOfOptionModifiedResult(result)
+    }
+
   }
 }
 
