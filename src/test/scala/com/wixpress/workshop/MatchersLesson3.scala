@@ -20,8 +20,6 @@ class MatchersLesson3 extends SpecificationWithJUnit with ResultMatchers with Mo
 
 
     val result = new Result(id = randomGuid[Result], dateTime = new DateTime)
-    val anotherResult = new Result(id = randomGuid[Result], dateTime = new DateTime)
-
     val content = randomStr
   }
 
