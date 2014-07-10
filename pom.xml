@@ -7,13 +7,13 @@
     <name>matchers-workshop</name>
     <description>matchers-workshop</description>
     <version>1.1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <url>${project_url}/${project.artifactId}</url>
 
     <parent>
         <groupId>com.wixpress.common</groupId>
-        <artifactId>wix-scala-war-parent-ng</artifactId>
+        <artifactId>wix-scala-parent-ng</artifactId>
         <version>100.0.0-SNAPSHOT</version>
         <relativePath/>
     </parent>

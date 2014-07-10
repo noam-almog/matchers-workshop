@@ -33,9 +33,9 @@ class SomeTestedClass(service: TestedInterface) {
   // option matchers
   def optionOf(s: String) = Option(s)
 
-  def modifiedOptionOf(t: Result) = Option(t).map(_.id)
+  def modifiedOptionOf(t: Result): Option[Guid[Result]] = Option(t).map(_.id)
   
-  def wrapperOfOption(t: Result) = ResultWrapper(Option(t))
+  def wrapperOfOption(t: Result): ResultWrapper[Option[Result]] = ResultWrapper(Option(t))
 
   def wrapperOfOptionModifiedResult(t: Result) = wrapperOfOption(modifiedClassFrom(t))
 
@@ -54,7 +54,8 @@ class SomeTestedClass(service: TestedInterface) {
 
 
   // exceptions
-  def throwExceptionWith(msg: String) = throw new RuntimeException(s"There is an error with your messge: [$msg]", new IllegalArgumentException)
+  @throws[RuntimeException]
+  def throwExceptionWith(msg: String): String = throw new RuntimeException(s"There is an error with your messge: [$msg]", new IllegalArgumentException)
 
 
   // mockito
